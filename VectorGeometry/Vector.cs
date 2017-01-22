@@ -42,33 +42,21 @@ namespace VectorGeometry
 
         public static Vector operator+(Vector vectorA, Vector vectorB)
         {
-            vectorA.X += vectorB.X;
-            vectorA.Y += vectorB.Y;
-            vectorA.Z += vectorB.Z;
-            return vectorA;
+            return new Vector(vectorA.X + vectorB.X, vectorA.Y + vectorB.Y, vectorA.Z + vectorB.Z);
         }
         public static Vector operator-(Vector vectorA, Vector vectorB)
         {
-            vectorA.X -= vectorB.X;
-            vectorA.Y -= vectorB.Y;
-            vectorA.Z -= vectorB.Z;
-            return vectorA;
+            return new Vector(vectorA.X - vectorB.X, vectorA.Y - vectorB.Y, vectorA.Z - vectorB.Z);
         }
 
         public static Vector operator*(Vector vector, double scalar)
         {
-            vector.X *= scalar;
-            vector.Y *= scalar;
-            vector.Z *= scalar;
-            return vector;
+            return new Vector(vector.X * scalar, vector.Y * scalar, vector.Z * scalar);
         }
 
         public static Vector operator/(Vector vector, double scalar)
         {
-            vector.X /= scalar;
-            vector.Y /= scalar;
-            vector.Z /= scalar;
-            return vector;
+            return new Vector(vector.X / scalar, vector.Y / scalar, vector.Z / scalar);
         }
 
         public static Vector CalculateUnitVector(Vector vector)
@@ -87,10 +75,10 @@ namespace VectorGeometry
 
         public static Vector CalculateCrossProduct(Vector vectorA, Vector vectorB)
         {
-            double X1 = vectorA.Y * vectorB.Z - vectorA.Z * vectorB.Y;
-            double X2 = vectorA.Z * vectorB.X - vectorA.X * vectorB.Z;
-            double X3 = vectorA.X * vectorB.Y - vectorA.Y * vectorB.X;
-            return new Vector(X1, X2, X3);
+            double X = vectorA.Y * vectorB.Z - vectorA.Z * vectorB.Y;
+            double Y = vectorA.Z * vectorB.X - vectorA.X * vectorB.Z;
+            double Z = vectorA.X * vectorB.Y - vectorA.Y * vectorB.X;
+            return new Vector(X, Y, Z);
         }
 
         public static Vector CalculateCrossProduct(double magnitudeOfVectorA, double magnitudeOfVectorB, double sinOfAngle, Vector unitVector)
